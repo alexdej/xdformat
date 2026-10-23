@@ -1,14 +1,15 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=77"]  # 77+ for the SPDX license string below
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "xdformat"
-version = "0.1.0"
+dynamic = ["version"]
 description = "The .xd plain-text crossword format: spec, parser, and converters"
 readme = "README.md"
 license = "MIT"
-requires-python = ">=3.8"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
 authors = [
     { name = "Saul Pwanson", email = "xd@saul.pw" },
 ]
@@ -16,11 +17,23 @@ keywords = ["crossword", "puzzles", "xd", "puz", "ipuz"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Games/Entertainment :: Puzzle Games",
+    "Topic :: Text Processing",
 ]
 
 [project.urls]
 Homepage = "https://github.com/century-arcade/xdformat"
+Repository = "https://github.com/century-arcade/xdformat"
+Issues = "https://github.com/century-arcade/xdformat/issues"
 Specification = "https://github.com/century-arcade/xdformat/blob/master/doc/xd-format.md"
 
 [project.optional-dependencies]
@@ -29,6 +42,9 @@ convert = ["puzpy>=0.2.6", "ipuz"]
 [project.scripts]
 puz2xd = "xdformat.puz2xd:main"
 ipuz2xd = "xdformat.ipuz2xd:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "xdformat.__version__" }
 
 [tool.setuptools.packages.find]
 include = ["xdformat*"]
