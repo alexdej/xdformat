@@ -6,7 +6,7 @@ Converters from other puzzle formats need the [convert] extra:
     pip install xdformat[convert]
 """
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 from .xdfile import (
     xdfile, parse,
