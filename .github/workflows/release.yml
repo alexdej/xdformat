@@ -10,8 +10,8 @@ name: release
 # pypi.org, by a project owner: Manage project -> Publishing -> add a GitHub
 # publisher with
 #   owner: century-arcade, repository: xdformat,
-#   workflow: release.yml, environment: release
-# GitHub creates the "release" environment on the first run if it doesn't
+#   workflow: release.yml, environment: pypi
+# GitHub creates the "pypi" environment on the first run if it doesn't
 # exist. A repo admin can add protection rules to it, such as a required
 # reviewer to approve each upload.
 #
@@ -57,7 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: release
+      name: pypi
       url: https://pypi.org/p/xdformat
     permissions:
       id-token: write
